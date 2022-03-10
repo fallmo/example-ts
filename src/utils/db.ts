@@ -1,4 +1,7 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+
+const x = 'unused';
 
 export const connectToDatabase = async () => {
   console.log("Attempting to connect to database...");
