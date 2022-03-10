@@ -14,8 +14,11 @@ jobs:
         with:
           node_version: 14.x
 
-      - name: Install Dependencies
-        run: npm ci
+      - id: vars
+        shell: bash
+        run: echo "::set-output name=sha_short::$()"
+
+      - run: npm ci
 
       - name: Run Unit Tests
         run: npm run test
@@ -36,4 +39,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: quay.io/mohamedf0/sample-app:${{ git rev-parse --short HEAD }},quay.io/mohamedf0/sample-app:latest
+          tags: quay.io/mohamedf0/sample-app:${{ steps.vars.outputs.sha_short }},quay.io/mohamedf0/sample-app:latest
