@@ -16,7 +16,7 @@ jobs:
 
       - id: vars
         shell: bash
-        run: echo "::set-output name=sha_short::$()"
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
       - run: npm ci
 
