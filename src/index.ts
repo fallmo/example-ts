@@ -3,7 +3,6 @@ import morgan from "morgan";
 import { connectToDatabase } from "./utils/db";
 import router from "./utils/router";
 
-const unused = "x"
 
 async function main(){
     await connectToDatabase();
